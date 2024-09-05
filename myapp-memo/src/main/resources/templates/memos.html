@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Memo List</h1>
+	<ul>
+		<li th:each="memo : ${memos}">
+			<a th:href="@{/detail/{id}(id=${memo.id})}" th:text="${memo.title}">list</a>
+		</li>
+	</ul>
+	<h2>Add New Memo</h2>
+	<form action="/insert" method="post">
+		Title: <input type="text" name="title" required><br>
+		Content:
+		<textarea name="content" required></textarea>
+		<br> <input type="submit" value="Add">
+	</form>
+</body>
+</html>

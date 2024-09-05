@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Memo Detail</h1>
+	<p>
+		<strong>Title:</strong><span th:text="${memo.title}"></span>
+	</p>
+	<p>
+		<strong>Content:</strong><span th:text="${memo.content}"></span>
+	</p>
+	<!-- HTML 폼에서는 method가 POST 또는 GET으로만 보낼 수 있다. -->
+	<form action="/edit" method="post">
+		<input type="hidden" name="id" th:value="${memo.id}" />
+		Title: <input type="text" name="title" th:value="${memo.title}" required><br>
+		Content: <textarea name="content" required></textarea>
+		<br> <input type="submit" value="Edit">
+	</form>
+	<form action="/delete" method="post">
+		<input type="hidden" name="id" th:value="${memo.id}" />
+		<input type="submit" value="Delete">
+	</form>
+</body>
+</html>

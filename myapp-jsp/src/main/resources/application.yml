@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: myapp-jsp
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  web:
+    resources:
+      static-locations:
+      - classpath:/
+server:
+  port: 8081
